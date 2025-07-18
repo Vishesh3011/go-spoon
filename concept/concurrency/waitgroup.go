@@ -12,7 +12,6 @@ func reader(wg *sync.WaitGroup, id int) {
 }
 
 func TryWaitGroup() {
-	//	initial implementation
 	stTime := time.Now()
 
 	//for loop time

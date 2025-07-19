@@ -4,6 +4,11 @@ import "example/concept/concurrency"
 
 func main() {
 	//concurrency.TryWaitGroup()
-	concurrency.TryChannel1()
-	//concurrency.TryChannel2()
+	//concurrency.TryUnbufferedChannel1()
+	//concurrency.TryUnbufferedChannel2()
+	//concurrency.TrySelect()
+	//concurrency.TryBufferedChannel1()
+	//concurrency.TryForSelect()
+	//concurrency.TryDoneChannel()
+	concurrency.TryPipeline()
 }

@@ -18,7 +18,7 @@ func readerForChannel(id int, ch <-chan int, wg *sync.WaitGroup) {
 	}
 }
 
-func TryChannel1() {
+func TryUnbufferedChannel1() {
 	ch := make(chan string)
 	go func() {
 		ch <- "yo"
@@ -34,7 +34,7 @@ func TryChannel1() {
 	fmt.Println(msg2)
 }
 
-func TryChannel2() {
+func TryUnbufferedChannel2() {
 	stTime := time.Now()
 
 	wg := &sync.WaitGroup{}
@@ -59,4 +59,21 @@ func TryChannel2() {
 	//}
 
 	fmt.Println(time.Since(stTime))
+}
+
+func TryBufferedChannel1() {
+	ch := make(chan string, 3)
+	chars := []string{"a", "b", "c"}
+
+	for _, char := range chars {
+		//select {
+		//case ch <- char:
+		//}
+		ch <- char
+	}
+	close(ch)
+
+	for msg := range ch {
+		fmt.Println(msg)
+	}
 }

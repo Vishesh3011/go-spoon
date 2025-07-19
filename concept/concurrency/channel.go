@@ -18,7 +18,23 @@ func readerForChannel(id int, ch <-chan int, wg *sync.WaitGroup) {
 	}
 }
 
-func TryChannel() {
+func TryChannel1() {
+	ch := make(chan string)
+	go func() {
+		ch <- "yo"
+	}()
+
+	go func() {
+		ch <- "hey"
+	}()
+
+	msg1 := <-ch
+	msg2 := <-ch
+	fmt.Println(msg1)
+	fmt.Println(msg2)
+}
+
+func TryChannel2() {
 	stTime := time.Now()
 
 	wg := &sync.WaitGroup{}

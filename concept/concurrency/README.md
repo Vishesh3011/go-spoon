@@ -29,5 +29,13 @@ A for select pattern is used to read from go channels till the passed data struc
 A done channel is a sort of boolean channel that can be used to stop an ongoing running channel. A done channel is used for graceful shutdowns or to signal a go code during runtime. For ex: Pressing Ctrl+C from terminal can be used to signal the channel to stop the ongoing process/code/server/application.
 
 ### Pipeline
-Refer https://youtu.be/qyM8Pi1KiiM?si=Hb0qHJrhykPL1p_A at 41:25 for understanding!
+What is exactly happening in the code is this flow:
+1. 1 is sent to dataCh
+2. 1 is then squared and sent to finalCh
+3. main() -> TryPipeline() which is also a goroutine reads data of 1 concurrently before processing 2
+3. 2 is then sent to dataCh, then squared and sent to finalCh, then printed in for
+4. and so on...!
+5. This is how concurrency works!
+
+Refer https://youtu.be/qyM8Pi1KiiM?si=Hb0qHJrhykPL1p_A at 41:25 for better understanding!
 

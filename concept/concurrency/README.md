@@ -1,3 +1,5 @@
+## Concurrency vs Parallelism
+![concurrency_vs_parallelism.png](../../data/concurrency_vs_parallelism.png)
 ## Concurrency Terms
 ### GoRoutines
 A goroutine is basically a concurrency concept in go that golang provides explicitly for users for fast processing of data in a concurrent manner. A main function also is overall a goroutine. Here's how it works internally:
@@ -28,8 +30,11 @@ A for select pattern is used to read from go channels till the passed data struc
 ### The Done Channel
 A done channel is a sort of boolean channel that can be used to stop an ongoing running channel. A done channel is used for graceful shutdowns or to signal a go code during runtime. For ex: Pressing Ctrl+C from terminal can be used to signal the channel to stop the ongoing process/code/server/application.
 
+### Mutex
+A mutex is a mechanism of locking a resource such that the objects accessing the resource is only able to read and write over it at a time hence ensuring strong consistency. This concept is derived from the lock Mutual Exclusion.
+
 ### Pipeline
-What is exactly happening in the code is this flow:
+This is the flow of the execution in our code:
 1. 1 is sent to dataCh
 2. 1 is then squared and sent to finalCh
 3. main() -> TryPipeline() which is also a goroutine reads data of 1 concurrently before processing 2

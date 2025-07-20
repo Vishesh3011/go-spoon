@@ -10,5 +10,6 @@ func main() {
 	//concurrency.TryBufferedChannel1()
 	//concurrency.TryForSelect()
 	//concurrency.TryDoneChannel()
+	//concurrency.TryMutex()
 	concurrency.TryPipeline()
 }

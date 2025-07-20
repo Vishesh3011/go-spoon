@@ -1,5 +1,9 @@
 ## Concurrency vs Parallelism
 ![concurrency_vs_parallelism.png](../../data/concurrency_vs_parallelism.png)
+
+## Classic Example
+A classic example showing why the concurrency matters (https://www.youtube.com/watch?v=B9uR2gLM80E)
+
 ## Concurrency Terms
 ### GoRoutines
 A goroutine is basically a concurrency concept in go that golang provides explicitly for users for fast processing of data in a concurrent manner. A main function also is overall a goroutine. Here's how it works internally:

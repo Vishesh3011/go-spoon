@@ -3,6 +3,7 @@ package main
 import "example/concept/concurrency"
 
 func main() {
+	concurrency.TryExample()
 	//concurrency.TryWaitGroup()
 	//concurrency.TryUnbufferedChannel1()
 	//concurrency.TryUnbufferedChannel2()
@@ -11,5 +12,5 @@ func main() {
 	//concurrency.TryForSelect()
 	//concurrency.TryDoneChannel()
 	//concurrency.TryMutex()
-	concurrency.TryPipeline()
+	//concurrency.TryPipeline()
 }
